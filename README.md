@@ -1,2 +1,2 @@
 ## Inhalt
-#this is new text
+#this is a new text
