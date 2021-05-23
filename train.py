@@ -12,7 +12,8 @@ data = pd.read_csv('data\data_banknote_authentication.csv', names=attribute_name
 #Shuffle data
 data = data.sample(frac=1)
 
-#Shows pythothe first 5 rows of the data
+#Shows pytho
+# the first 5 rows of the data
 data.head()
 #'class'-column
 y_variable = data['class']
