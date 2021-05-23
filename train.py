@@ -3,6 +3,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
+import pickle as pi
+
 #List with attribute names (it is optional to do this but it gives a better understanding of the data for a human reader)
 attribute_names = ['variance_wavelet_transformed_image', 'skewness_wavelet_transformed_image', 'curtosis_wavelet_transformed_image', 'entropy_image', 'class']
 
@@ -35,3 +37,9 @@ classifier = classifier.fit(x_train, y_train)
 #Shows importances of the attributes according to our model 
 classifier.feature_importances_
 print('fertig trainiert')
+
+filename='classifier.pickle'
+
+f = open(filename, 'wb')
+pi.dump(classifier, f)
+f.close()
