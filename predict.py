@@ -1,26 +1,45 @@
+import pandas as pd
+import os
+import pickle
 from sklearn.metrics import classification_report, confusion_matrix
-from train import x_test,y_test,classifier,attribute_names
+#from train import x_test,y_test,classifier,attribute_names
 from sklearn.tree import export_graphviz
-from subprocess import check_call
-#Export as dot file
-export_graphviz(classifier, out_file='tree_bills.dot', class_names = ['0','1'], feature_names = attribute_names[0:4])
-
+from sklearn.metrics import accuracy_score
+#from subprocess import check_call
+#Export as dot file##
+#export_graphviz(classifier, out_file='tree_bills.dot', class_names = ['0','1'], feature_names = attribute_names[0:4])
+data = pd.read_csv('data\predict_datas.csv', header=None)
 #Export dot to png 
+x=data.loc[:,data.columns != 'class']
+print(x)
+############################
+# load Decision Tree model
 
-#check_call(['dot','-Tpng','tree_bills.dot','-o','tree_bills.png'])
+with open('classifier_decision_tree.pkl', 'rb') as f:
+    loaded_classifier = pickle.load(f)
+y_predDT = loaded_classifier.predict(x)
+print(' ')
+print('----------------------')
+print('Decision Tree',y_predDT)
+print('----------------------')
+print(' ')
 
-#prediciton decisiontree
-y_pred = classifier.predict(x_test) 
+with open('random_forest_classifier.pkl', 'rb') as f:
+    loaded_RFclassifier = pickle.load(f)
+y_predRF = loaded_RFclassifier.predict(x)
+print(' ')
+print('----------------------')
+print('Random Forest',y_predRF)
+print('----------------------')
+print(' ')
 
 
-#Create the matrix that shows how often predicitons were done correctly and how often theey failed.
-conf_mat = confusion_matrix(y_test, y_pred)
 
-#The diagonal ones are the correctly predicted instances. The sum of this number devided by the number of all instances gives us the accuracy in percent.
-accuracy = (conf_mat[0,0] + conf_mat[1,1]) /(conf_mat[0,0]+conf_mat[0,1]+ conf_mat[1,0]+conf_mat[1,1])
-
-print('Accuracy: ' + str(round(accuracy,4)))
-print('Confusion matrix:')
-print(conf_mat)  
-print('classification report:')
-print(classification_report(y_test, y_pred)) 
+#with open('k_fold.pkl', 'rb') as f:
+#    loaded_kfold = pickle.load(f)
+#y_predKF = loaded_kfold.predict(x)
+#print(' ')
+#print('----------------------')
+#print('K_Fold',y_predKF)
+#print('----------------------')
+#print(' ')
