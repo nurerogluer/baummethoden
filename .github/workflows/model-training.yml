@@ -1,0 +1,7 @@
+name: train-model
+on: [pull-request]
+jobs: 
+    train_model:
+      runs-on: ubuntu-latest
+      steps:  
+        - uses: actions/checkout@v
