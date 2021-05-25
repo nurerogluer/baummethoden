@@ -1,5 +1,5 @@
 name: train-model
-on: [pull-request]
+on: [pull_request]
 jobs: 
     train_model:
       runs-on: ubuntu-latest
