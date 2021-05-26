@@ -15,7 +15,7 @@ from sklearn.ensemble import RandomForestClassifier
 attribute_names = ['variance_wavelet_transformed_image', 'skewness_wavelet_transformed_image', 'curtosis_wavelet_transformed_image', 'entropy_image', 'class']
 
 #Read csv-file
-data = pd.read_csv('data\data_banknote_authentication.csv', names=attribute_names)
+data = pd.read_csv('data\data_banknote_authentication.csv', names=attribute_names, header=None)
 
 #Shuffle data
 data = data.sample(frac=1)
