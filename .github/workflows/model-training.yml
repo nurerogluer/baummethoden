@@ -1,7 +1,7 @@
 
-name: Baummethoden
+name: train-model
 
-on: [push]
+on: [pull_request]
 
 jobs:
   build:
@@ -16,8 +16,8 @@ jobs:
         python-version: '3.8'
     - name: Install dependencies
 #    - name: Get python version
-#      run: python -m pip install -r requirements.txt
-      run: python -V
+      run: pip install -r requirements.txt
+#      run: python -V
     - name: Train model
       run: python train.py
     - name: Archive production artifacts
