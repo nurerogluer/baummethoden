@@ -8,16 +8,19 @@ from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import KFold, cross_val_score
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
-
+#from pathlib import Path
 
 
 #List with attribute names (it is optional to do this but it gives a better understanding of the data for a human reader)
 attribute_names = ['variance_wavelet_transformed_image', 'skewness_wavelet_transformed_image', 'curtosis_wavelet_transformed_image', 'entropy_image', 'class']
 
 #Read csv-file
-data = pd.read_csv('data\data_banknote_authentication.csv', names=attribute_names)
+data = pd.read_csv('data/data_banknote_authentication.csv', names=attribute_names, header=None)
+
 
 #Shuffle data
+
+
 data = data.sample(frac=1)
 
 #Shows pytho
