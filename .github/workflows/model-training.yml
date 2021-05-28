@@ -19,7 +19,7 @@ jobs:
       run: pip install -r requirements.txt
 #      run: python -V
     - name: Train model
-    run:  /Users/nurdm/anaconda3/python.exe c:/Users/nurdm/Projekts/baum2/train.py
+      run:  /Users/nurdm/anaconda3/python.exe c:/Users/nurdm/Projekts/baum2/train.py
       #run: python train.py 
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
