@@ -15,11 +15,15 @@ from pathlib import Path
 attribute_names = ['variance_wavelet_transformed_image', 'skewness_wavelet_transformed_image', 'curtosis_wavelet_transformed_image', 'entropy_image', 'class']
 
 #Read csv-file
-data = pd.read_csv('data\data_banknote_authentication.csv', names=attribute_names, header=None)
-#data_folder=Path("data/")
-#file_to_open = data_folder / "data_banknote_authentication.csv"
+data = pd.read_csv('data/data_banknote_authentication.csv', names=attribute_names, header=None)
+#, names=attribute_names, header=None
+
+
+#data_folder = Path("data/")
+#file_to_open = data_folder / "data_banknote_authentication.txt"
 #data=open(file_to_open)
 #print(data.read())
+
 #Shuffle data
 
 
